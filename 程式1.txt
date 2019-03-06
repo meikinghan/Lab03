@@ -1,0 +1,30 @@
+const byte LedPin =13;
+
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println("Hello,World");
+  Serial.print("\tLED pin is:");
+  Serial.print("\nLedPin");
+  Serial.print("\nBYE!\n");
+  
+}
+
+
+void loop(){
+  byte val;
+  if(Serial.available())
+  {
+    val =Serial.read();
+    if(val=='1')
+    {
+      digitalWrite(LedPin,HIGH);
+      Serial.println("LED ON");
+    }
+    else if(val =='0')
+    {
+      digitalWrite(LedPin,LOW);
+      Serial.println("LED OFF");
+    }
+  }
+}
